@@ -38,12 +38,21 @@ public class MainPageServlet extends HttpServlet
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String searchinput = request.getParameter("searchinput");
-		String type = request.getParameter("type");
-		String token = request.getParameter("token");
 		String username = request.getParameter("username");
-		
-		response.sendRedirect("/LoginForm/StockServlet?symbol=" + searchinput + "&type=" + type + "&username=" + username + "&token=" + token);
+		String token = request.getParameter("token");
+		String navSearchInput = request.getParameter("navSearchInput");
+		if (navSearchInput == null)
+		{
+			String searchinput = request.getParameter("searchinput");
+			String type = request.getParameter("type");
+			
+			response.sendRedirect("/LoginForm/StockServlet?symbol=" + searchinput + "&type=" + type + "&username=" + username + "&token=" + token);
+		} else {
+			String type = "volume";
+			String[] searchParams = navSearchInput.split(":");
+			if (searchParams.length > 1)
+				type = searchParams[1];
+			response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchParams[0] + "&type=" + type + "&username=" + request.getParameter("username") + "&token=" + request.getParameter("token"));
+		}
 	}
-
 }
