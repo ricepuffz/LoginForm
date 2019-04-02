@@ -2,12 +2,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <ul>
     <li><a id="mainPageLink">Main Page</a></li>
+    <li><a id="helpLink" onclick="openHelp()">Help</a></li>
     <div id="navRightDiv">
 	    <li id="searchListEntry">
 	    	<div id="navSearch">
-	    		<form id="navSearchForm" method="post">
-	    			<input type="text" placeholder="Search..." id="navSearchInput" name="navSearchInput">
-	    			<button type="submit" id="navSearchButton"><i class="fa fa-search"></i></button>
+	    		<form id="navSearchForm" method="post" onkeypress="return event.keyCode != 13;">
+	    			<input type="text" placeholder="Search..." id="navSearchInput" name="navSearchInput" oninput="checkNavSearchValue()">
+	    			<button type="button" id="navSearchButton" onclick="navSearchClick()"><i class="fa fa-search"></i></button>
 	    		</form>
 	    	</div>
 	    </li>
@@ -21,4 +22,24 @@
 	var username = url.searchParams.get("username");
 	var token = url.searchParams.get("token");
 	document.getElementById("mainPageLink").href = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/MainPageServlet?username=" + username + "&token=" + token;
+	
+	function navSearchClick()
+	{
+		if (document.getElementById("navSearchInput").value.length > 0)
+			document.getElementById("navSearchForm").submit();
+	}
+	
+	function openHelp()
+	{
+		var link = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/HelpServlet";
+		window.open(link, "Help", "height=200,width=350,menubar=0,resizable=0,status=0,titlebar=0,toolbar=0,left=200,top=100");
+	}
+	
+	function checkNavSearchValue()
+	{
+		if (document.getElementById("navSearchInput").value.length == 0)
+			document.getElementById("navSearchForm").onkeypress = "";
+		else
+			document.getElementById("navSearchForm").onkeypress = "return event.keyCode != 13;";
+	}
 </script>

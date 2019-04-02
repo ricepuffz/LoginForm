@@ -22,6 +22,10 @@ li a {
   font-family: 'Trebuchet MS', Helvetica, sans-serif;
 }
 
+a[id=helpLink]:hover {
+	cursor: pointer;
+}
+
 li[id=logoutListEntry] {
 	float: right;
 }

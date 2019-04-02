@@ -49,7 +49,7 @@ public class StockServlet extends HttpServlet
 				response.sendRedirect("LoginServlet");
 			else
 			{
-				String symbol = request.getParameter("symbol");
+				String symbol = request.getParameter("symbol").toUpperCase();
 				String type = request.getParameter("type");
 				
 				switch (type) {
@@ -125,9 +125,11 @@ public class StockServlet extends HttpServlet
 			doGet(request, response);
 		else
 		{
-			String type = "";
+			String type = request.getParameter("type");
 			String[] searchParams = searchInput.split(":");
-			response.sendRedirect(request.getContextPath() + "");
+			if (searchParams.length > 1)
+				type = searchParams[1];
+			response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchParams[0] + "&type=" + type + "&username=" + request.getParameter("username") + "&token=" + request.getParameter("token"));
 		}
 	}
 	
@@ -143,7 +145,7 @@ public class StockServlet extends HttpServlet
 				+ "    data: {"
 				+ "        labels: [" + (String) intervallString(intervall)[0] + "],"
 				+ "        datasets: [{"
-				+ "            label: '"+ type.substring(0, 1).toUpperCase() + type.substring(1) + "',"
+				+ "            label: '"+ type.substring(0, 1).toUpperCase() + type.substring(1).toLowerCase() + "',"
 				+ "            data: [" + data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + ", " + data[4] + ", " + data[5] + "],"
 				+ "            backgroundColor: 'rgba(255, 99, 132, 0.2)',"
 				+ "            borderColor: 'rgba(255, 99, 132, 1)',"
@@ -301,22 +303,14 @@ public class StockServlet extends HttpServlet
 			try {
 				data[i] = dataJSON.getJSONObject(date + " " + times[i]).getString(typeString);
 			} catch (JSONException e) {
-				try {
-					data[i] = dataJSON.getJSONObject(date + " " + reduceTime(times[i], -1)).getString(typeString);
-				} catch (JSONException e2) {
-					try {
-						data[i] = dataJSON.getJSONObject(date + " " + reduceTime(times[i], 1)).getString(typeString);
-					} catch (JSONException e3) {
-						data[i] = "0";
-						System.out.println(date + " " + times[i]);
-					}
-				} //Integer.parseInt(intervall.split("m")[0])
+				data[i] = "0";
 			}
 		}
 		
 		return data;
 	}
 
+	/*
 	private String reduceTime(String time, int minutes)
 	{
 		//0: hours, 1: minutes, 2: seconds
@@ -336,4 +330,5 @@ public class StockServlet extends HttpServlet
 		
 		return hour + ":" + minute + ":00";
 	}
+	*/
 }
