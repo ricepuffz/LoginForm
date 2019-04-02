@@ -15,14 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-	UserDatabase userDatabase = null;
        
     public LoginServlet()
     {
         super();
         
         try {
-			userDatabase = new UserDatabase();
+			GlobalInfo.userDatabase = new UserDatabase();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -42,7 +41,7 @@ public class LoginServlet extends HttpServlet
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
 
-		boolean verified = userDatabase.verify(request.getParameter("usernameinput"), request.getParameter("passwordinput"));
+		boolean verified = GlobalInfo.userDatabase.verify(request.getParameter("usernameinput"), request.getParameter("passwordinput"));
 		if (verified)
 			response.sendRedirect("/LoginForm/MainPageServlet?username=" + request.getParameter("usernameinput") + "&token=" + SessionManager.generateToken(request.getParameter("usernameinput")));
 		else
