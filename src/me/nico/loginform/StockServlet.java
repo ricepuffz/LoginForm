@@ -19,6 +19,7 @@ import org.json.JSONObject;
 public class StockServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	//Stealing the api key is of no use since it's just a free plan, get your own at alphavantage.co
 	private static final String API_KEY = "TBMBG4EOCQK7Y6EM";
        
     public StockServlet()

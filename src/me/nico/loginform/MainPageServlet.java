@@ -30,11 +30,12 @@ public class MainPageServlet extends HttpServlet
 		else
 		{
 			String[] html = HTMLReader.readHtml("C:/Users/Nico/Desktop/workspace/LoginForm/WebContent/mainPage.html");
+			String[] navigationBarHtml = HTMLReader.readHtml("C:/Users/Nico/Desktop/workspace/LoginForm/WebContent/navigationBar.html");
 			
-			out.print(html[0]);
+			out.print(html[0] + request.getContextPath() + html[1] + navigationBarHtml[0] + request.getContextPath() + navigationBarHtml[1] + html[2]);
 		}
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		String searchinput = request.getParameter("searchinput");

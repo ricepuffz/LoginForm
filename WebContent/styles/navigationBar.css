@@ -31,7 +31,10 @@ li[id=logoutListEntry] {
 }
 
 li[id=searchListEntry] {
-	padding: 13 16 13 16;
+	padding-top: 13px;
+	padding-right: 16px;
+	padding-bottom: 13px;
+	padding-left: 16px;
 }
 
 li a:hover {
@@ -48,12 +51,12 @@ form[id=navSearchForm] {
 }
 
 input[id=navSearchInput] {
-	font-size: 17;
+	font-size: 17px;
 	border-radius: 5px;
 	border-width: 2px;
 	padding-top: 3px;
 	padding-left: 4px;
-	padding-right = 4px;
+	padding-right: 4px;
 }
 
 button[id=navSearchButton] {
@@ -61,6 +64,6 @@ button[id=navSearchButton] {
 	color: white;
 	background-color: #333333;
 	cursor: pointer;
-	font-size: 18;
+	font-size: 18px;
 	height: 28px;
 }
