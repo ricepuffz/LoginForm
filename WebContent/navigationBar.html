@@ -1,0 +1,24 @@
+<link rel='stylesheet' type='text/css' href='¬/styles/navigationBar.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ul>
+    <li><a id="mainPageLink">Main Page</a></li>
+    <div id="navRightDiv">
+	    <li id="searchListEntry">
+	    	<div id="navSearch">
+	    		<form id="navSearchForm" method="post">
+	    			<input type="text" placeholder="Search..." id="navSearchInput" name="navSearchInput">
+	    			<button type="submit" id="navSearchButton"><i class="fa fa-search"></i></button>
+	    		</form>
+	    	</div>
+	    </li>
+	    <li id="logoutListEntry"><a id="logoutLink">Logout</a></li>
+	</div>
+</ul>
+<script>
+	var urlString = window.location.href;
+	var url = new URL(urlString);
+	document.getElementById("logoutLink").href = window.location.href + "&logout=true";
+	var username = url.searchParams.get("username");
+	var token = url.searchParams.get("token");
+	document.getElementById("mainPageLink").href = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/MainPageServlet?username=" + username + "&token=" + token;
+</script>

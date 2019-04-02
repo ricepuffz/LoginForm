@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+	background
+}
+
+div[id=bodyWrapperWrapper] {
+	width: 50%;
+	background-color: #dddddd;
+}
+
+div[id=bodyWrapper] {
+	width: 75%;
+}
+
+center {
+	margin-top: 3vw;
+}
+
+canvas {
+	background-color: #ffffff;
+	position: absolute;
+}
+
+div[name=canvasDiv] {
+	
+}
+
+br {
+	font-size: 0.7vw;
+}

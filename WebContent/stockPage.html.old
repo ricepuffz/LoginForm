@@ -1,0 +1,48 @@
+<html>
+<link rel='stylesheet' type='text/css' href='¬/styles/stockStyle.css'>
+<script src="chart/Chart.bundle.js"></script>
+
+<head>
+    <title>Stock ¬</title>
+</head>
+
+<body>
+    <center>
+        <div id="bodyWrapperWrapper">
+            <div id="bodyWrapper">
+                <br>
+                <center>
+                    <div id="titleWrapper">
+                        <u>
+						 <font size="3" style="font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 3vw;">¬ history for ¬</font>
+						 </u>
+                    </div>
+                    <div name="upperCanvasDiv" style="margin-top: 5vw;">
+                        <div name="upperLeftCanvasDiv">
+                            <canvas id="min1Chart" width="400" height="400"></canvas>
+                        </div>
+                        <div style="width: 3vw;"></div>
+                        <div name="upperRightCanvasDiv">
+                            <canvas id="min5Chart" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                    <div name="lowerCanvasDiv" style="margin-bottom: 4vw;">
+                        <div name="lowerLeftCanvasDiv">
+                            <canvas id="min15Chart" width="400" height="400"></canvas>
+                        </div>
+                        <div style="width: 3vw;"></div>
+                        <div name="lowerRightCanvasDiv">
+                            <canvas id="min30Chart" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                </center>
+                <br>
+            </div>
+        </div>
+    </center>
+    <script>
+        ¬
+    </script>
+</body>
+
+</html>

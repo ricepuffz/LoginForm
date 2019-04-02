@@ -1,0 +1,67 @@
+<html>
+<link rel='stylesheet' type='text/css' href='¬/styles/style.css' />
+
+<head>
+    <title>Login Form</title>
+</head>
+
+<body>
+    <center>
+        <div id="center">
+            <br>
+            <div id="title">
+                <font size="9">Login</font>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <form method="post">
+                <div id="input">
+                    <p>Username:</p>
+                    <input type="text" id="usernameinput" name="usernameinput">
+                    <br>
+                    <br>
+                    <p>Password:</p>
+                    <input type="password" id="passwordinput" name="passwordinput">
+                </div>
+                <br>
+                <input type="submit" id="submitbutton" value="Submit">
+                <button type="button" id="clearbutton">Clear</button>
+            </form>
+            <br>
+        </div>
+    </center>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        document.getElementById("clearbutton").addEventListener("click", clear);
+        $(document).on("input", "#usernameinput", function() {
+            $.get("RegexCheckerServlet", {
+                type: 'username',
+                content: $("#usernameinput").val()
+            }, function(responseText) {
+                var splits = responseText.split(':');
+                $("#usernameinput").css(splits[0], splits[1]);
+            });
+        });
+        $(document).on("input", "#passwordinput", function() {
+            $.get("RegexCheckerServlet", {
+                type: 'password',
+                content: $("#passwordinput").val()
+            }, function(responseText) {
+                var splits = responseText.split(':');
+                $("#passwordinput").css(splits[0], splits[1]);
+            });
+        });
+
+        function clear() {
+            var usernameinput = document.getElementById("usernameinput");
+            var passwordinput = document.getElementById("passwordinput");
+            usernameinput.value = "";
+            passwordinput.value = "";
+            usernameinput.style.cssText = "";
+            passwordinput.style.cssText = "";
+        }
+    </script>
+</body>
+
+</html>

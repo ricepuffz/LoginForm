@@ -1,0 +1,51 @@
+div[id=center] {
+	width: 33%;
+	background-color: #dddddd;
+	margin-top: 100px;
+}
+
+div[id=title] {
+	margin-top: 4px;
+}
+
+font {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+p {
+	margin-bottom: 4px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+input[type=text], input[type=password] {
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	width: 80%;
+}
+
+button, input[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+button:hover, input[type=submit]:hover {
+	opacity: 0.8;
+}
+
+button[id=clearbutton] {
+	background-color: #f44336;
+	width: 17%;
+}
+
+input[type=submit] {
+	width: 62%;
+}

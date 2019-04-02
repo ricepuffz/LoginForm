@@ -1,0 +1,91 @@
+<html>
+<link rel='stylesheet' type='text/css' href='¬/styles/stockStyle.css'>
+<script src="chart/Chart.bundle.js"></script>
+
+<head>
+    <title>Stock ¬</title>
+</head>
+
+<body onload="setup()" onresize="resizeCanvasDiv()">
+	¬
+    <center>
+        <div id="bodyWrapperWrapper">	
+            <div id="bodyWrapper">
+                <br>
+                <center>
+                    <div id="titleWrapper">
+                        <u>
+						 <font size="3" style="font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 3vw;">¬ history for ¬</font>
+						 </u>
+                    </div>
+                    <div id="canvasDiv" name="canvasDiv" style="margin-top: 5vw; margin-bottom: 1vw;">
+                        <canvas id="min1Chart" width="400" height="400"></canvas>
+                        <canvas id="min5Chart" width="400" height="400"></canvas>
+                        <canvas id="min15Chart" width="400" height="400"></canvas>
+                        <canvas id="min30Chart" width="400" height="400"></canvas>
+                    </div>
+                    <div id="intervalSelectDiv" name="intervalSelectDiv" style="margin-bottom: 4vw;">
+                        <select id="intervalSelect" name="intervalSelect" onchange="updateChart()">
+                            <option value="1min" selected>1 minute</option>
+                            <option value="5min">5 minutes</option>
+                            <option value="15min">15 minutes</option>
+                            <option value="30min">30 minutes</option>
+                        </select>
+                    </div>
+                </center>
+                <br>
+            </div>
+        </div>
+    </center>
+    <script>
+        ¬
+        var resizeIntervalID;
+        var activeChart = document.getElementById("min1Chart");
+        var charts = [activeChart, document.getElementById("min5Chart"), document.getElementById("min15Chart"), document.getElementById("min30Chart")];
+        
+        
+        function setup()
+        {
+        	resizeIntervalID = window.setInterval(resizeCanvasDiv, 100);
+        	activateChart(charts[0]);
+        }
+        function resizeCanvasDiv()
+        {
+        	if (activeChart != null)
+            	document.getElementById("canvasDiv").style.height = activeChart.style.height;
+        }
+        function activateChart(newActiveChart)
+        {
+        	activeChart = newActiveChart;
+        	for (var i = 0; i < 4; i++)
+        	{
+        		if (charts[i] != activeChart)
+        			charts[i].style.display = "none";
+        		else
+        			activeChart.style.display = "block";
+        	}
+        }
+        function updateChart()
+        {
+        	var chart;
+        	switch (document.getElementById("intervalSelect").value) {
+        	    case "1min":
+        	    	chart = charts[0];
+        	    	break;
+        	    case "5min":
+        	    	chart = charts[1];
+        	    	break;
+        	    case "15min":
+        	    	chart = charts[2];
+        	    	break;
+        	    case "30min":
+        	    	chart = charts[3];
+        	    	break;
+        	}
+        	console.log("Selected chart: " + chart);
+        	activateChart(chart);
+        }
+    </script>
+</body>
+
+</html>
