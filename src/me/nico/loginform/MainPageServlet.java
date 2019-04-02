@@ -29,8 +29,8 @@ public class MainPageServlet extends HttpServlet
 			response.sendRedirect("LoginServlet");
 		else
 		{
-			String[] html = HTMLReader.readHtml("C:/Users/Nico/Desktop/workspace/LoginForm/WebContent/mainPage.html");
-			String[] navigationBarHtml = HTMLReader.readHtml("C:/Users/Nico/Desktop/workspace/LoginForm/WebContent/navigationBar.html");
+			String[] html = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/mainPage.html");
+			String[] navigationBarHtml = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/navigationBar.html");
 			
 			out.print(html[0] + request.getContextPath() + html[1] + navigationBarHtml[0] + request.getContextPath() + navigationBarHtml[1] + html[2]);
 		}

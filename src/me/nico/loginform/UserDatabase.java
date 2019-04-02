@@ -13,7 +13,7 @@ public class UserDatabase
 	public UserDatabase() throws ClassNotFoundException, SQLException
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "toor");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/users?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/London", "root", "toor");
 		
 		statement = connection.createStatement();
 	}

@@ -22,7 +22,7 @@ public class HelpServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		PrintWriter out = response.getWriter();
-		String[] html = HTMLReader.readHtml("C:/Users/Nico/Desktop/workspace/LoginForm/WebContent/helpPage.html");
+		String[] html = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/helpPage.html");
 		out.print(html[0] + request.getContextPath() + html[1]);
 	}
 	
