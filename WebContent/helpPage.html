@@ -1,9 +1,25 @@
 <html>
+	<link rel='stylesheet' type='text/css' href='¬/styles/helpStyle.css'>
 	<head>
 		<title>Help</title>
 	</head>
 	<body>
-		<h2>Help</h2>
-		<p>Random help stuff..</p>
+		<div>
+			<h2>Search</h2>
+			<p>The functionality of the search on the main page is different than that of that on the navigation bar.</p>
+			<p>On the main page, you select the type of information you want with the drop down selection, type in the symbol name in the search box itself and search.</p>
+			<p>On the navigation bar, there is no drop down selection. The syntax here is <strong>symbol:type</strong></p>
+			<p>However, it is not necassary to specify a type (when using the navigation bar), when no type is appended to the symbol the standard type being used is "volume". When searching using the navigation bar searchbox from a stock information page, the currently viewed type is being used automatically.</p>
+		</div>
+		<br>
+		<div>
+			<h2>API Usage</h2>
+			<p>All stock data delivered on this page is being retrieved using the Alphavantage API. Since only a free plan is being used, the API call frequency is 5 per minute and 500 per day.</p>
+			<p>Because of this limit, a minute has to pass after opening a stock information page until a new stock information page can be opened, since opening one requires 4 API calls.</p>
+			<p>If you open a new stock information page before a minute has passed, simply wait a minute and then click the "Reload page" button on the error page or return to the main page by using the link.</p>
+		</div>
+		<br>
+		<hr>
+		<p>This page was created by Nico Bulla in 2019</p>
 	</body>
 </html>

@@ -23,7 +23,7 @@ public class HelpServlet extends HttpServlet
 	{
 		PrintWriter out = response.getWriter();
 		String[] html = HTMLReader.readHtml("C:/Users/Nico/Desktop/workspace/LoginForm/WebContent/helpPage.html");
-		out.print(html[0]);
+		out.print(html[0] + request.getContextPath() + html[1]);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

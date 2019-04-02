@@ -35,6 +35,57 @@ public class UserDatabase
 		return false;
 	}
 	
+	public String getName(String username)
+	{
+		ResultSet result = null;
+		try {
+			result = statement.executeQuery("SELECT * FROM data WHERE email = \"" + username + "\"");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (result.next())
+				return result.getString(3);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	public String getFirstName(String username)
+	{
+		ResultSet result = null;
+		try {
+			result = statement.executeQuery("SELECT * FROM data WHERE email = \"" + username + "\"");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (result.next())
+				return result.getString(4);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	public String getGender(String username)
+	{
+		ResultSet result = null;
+		try {
+			result = statement.executeQuery("SELECT * FROM data WHERE email = \"" + username + "\"");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (result.next())
+				return result.getString(5);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
 	public static void main(String[] args)
 	{
 		try {

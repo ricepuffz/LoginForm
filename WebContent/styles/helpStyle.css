@@ -1,0 +1,12 @@
+p {
+	font-size: 15px;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	margin-left: 2px;
+}
+
+h2 {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	width: auto;
+	background-color: #dddddd;
+	padding: 4px
+}

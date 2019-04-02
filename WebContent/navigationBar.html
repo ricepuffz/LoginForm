@@ -32,14 +32,23 @@
 	function openHelp()
 	{
 		var link = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/HelpServlet";
-		window.open(link, "Help", "height=200,width=350,menubar=0,resizable=0,status=0,titlebar=0,toolbar=0,left=200,top=100");
+		window.open(link, "Help", "width=350,height=500,menubar=0,resizable=0,status=0,titlebar=0,toolbar=0,left=200,top=100");
 	}
 	
 	function checkNavSearchValue()
 	{
 		if (document.getElementById("navSearchInput").value.length == 0)
-			document.getElementById("navSearchForm").onkeypress = "";
+		{
+			document.getElementById("navSearchForm").onkeypress = function(event)
+			{
+				var key = event.charCode || event.keyCode || 0;
+				if (key == 13)
+				{
+					event.preventDefault();
+				}
+			}
+		}
 		else
-			document.getElementById("navSearchForm").onkeypress = "return event.keyCode != 13;";
+			document.getElementById("navSearchForm").onkeypress = null;
 	}
 </script>
