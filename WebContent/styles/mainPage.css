@@ -2,6 +2,89 @@ body {
 	margin: 0;
 }
 
-div[id=formWrapper] {
+.center {
 	text-align: center;
+}
+
+.stdFont {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+.blue {
+	color: #00AEDC;
+}
+
+div[id=searchBox] {
+	display: inline-block;
+	margin-top: 50px;
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	width: fit-content;
+}
+
+h2[id=searchBoxHeader] {
+	margin-top: 10px;
+	font-size: 30px;
+}
+
+input[id=searchinput] {
+	font-size: 20px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+select[id=type] {
+	width: 32%;
+	font-size: 15px;
+	padding: 0;
+}
+
+input[id=submitbutton] {
+	width: 66%;
+	font-size: 15px;
+	padding: 3px 0 3px 0;
+	background-color: #00AEDC;
+	color: #ffffff;
+	text-decoration: none;
+	border: none;
+}
+
+input[id=submitbutton]:hover {
+	background-color: #008CBA;
+}
+
+form {
+	margin-bottom: 10px;
+}
+
+div[id=aboutTheStocks] {
+	margin-top: 50px;
+	width: 60vw;
+	display: inline-block;
+}
+
+div[id=aboutTheStocks] h1 {
+	width: fit-content;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 50px;
+	text-decoration: underline;
+	text-align: center;
+	display: inline-block;
+	margin: 10px 0 30px 0;
+}
+
+div[id=aboutTheStocks] h2 {
+	width: fit-content;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 35px;
+	margin-bottom: 5px;
+}
+
+div[id=aboutTheStocks] p {
+	width: fit-content;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 20px;
+	text-align: left;
+	margin-top: 0;
 }
