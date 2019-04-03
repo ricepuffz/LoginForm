@@ -25,6 +25,15 @@ public class MainPageServlet extends HttpServlet
 		String token = request.getParameter("token");
 		String username = request.getParameter("username");
 		
+		String logoutTag = request.getParameter("logout");
+		
+		if (logoutTag != null && logoutTag.equals("true"))
+		{
+			SessionManager.unauthenticateToken(request.getParameter("username"), request.getParameter("token"));
+			response.sendRedirect(request.getContextPath() + "/LoginServlet");
+			return;
+		}
+		
 		if (token == null || username == null || !SessionManager.authenticateToken(username, token))
 			response.sendRedirect("LoginServlet");
 		else
