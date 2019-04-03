@@ -40,7 +40,7 @@ select[id=type] {
 	padding: 0;
 }
 
-input[id=submitbutton] {
+button[id=submitbutton] {
 	width: 66%;
 	font-size: 15px;
 	padding: 3px 0 3px 0;
@@ -50,7 +50,7 @@ input[id=submitbutton] {
 	border: none;
 }
 
-input[id=submitbutton]:hover {
+button[id=submitbutton]:hover {
 	background-color: #008CBA;
 }
 

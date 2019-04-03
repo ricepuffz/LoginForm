@@ -9,8 +9,8 @@
 	<div class="center">
 		<div id="searchBox">
 			<h2 id="searchBoxHeader" class="stdFont">Show data for stock:</h2>
-		    <form method="post">
-		    	<input type="text" id="searchinput" name="searchinput" placeholder="Symbol"><br>
+		    <form id="searchForm" method="post" onkeypress="return event.keyCode != 13;">
+		    	<input type="text" id="searchinput" name="searchinput" placeholder="Symbol" oninput="checkNavSearchValue()"><br>
 		    	<div id="lowerSearchBox">
 			        <select id="type" name="type">
 			            <option value="volume" selected>Volume</option>
@@ -19,7 +19,7 @@
 			            <option value="open">Open</option>
 			            <option value="close">Close</option>
 			        </select>
-			        <input type="submit" id="submitbutton" value="Submit">
+			        <button type="button" id="submitbutton" onclick="searchClick()">Submit</button>
 			    </div>
 		    </form>
 		</div>
@@ -64,5 +64,29 @@
 			<br>
 		</div>
 	</div>
+<script>
+function searchClick()
+{
+	if (document.getElementById("searchinput").value.length > 0)
+		document.getElementById("searchForm").submit();
+}
+
+function checkNavSearchValue()
+{
+	if (document.getElementById("searchinput").value.length == 0)
+	{
+		document.getElementById("searchForm").onkeypress = function(event)
+		{
+			var key = event.charCode || event.keyCode || 0;
+			if (key == 13)
+			{
+				event.preventDefault();
+			}
+		}
+	}
+	else
+		document.getElementById("searchForm").onkeypress = null;
+}
+</script>
 </body>
 </html>
