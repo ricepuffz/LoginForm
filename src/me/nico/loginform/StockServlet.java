@@ -40,7 +40,7 @@ public class StockServlet extends HttpServlet
 		}
 		
 		if (request.getParameter("symbol") == null)
-			out.print("No symbol specified!");
+			response.sendRedirect(request.getContextPath() + "/ErrorServlet?username=" + request.getParameter("username") + "&token=" + request.getParameter("token") + "&message=No symbol specified");
 		else
 		{
 			String token = request.getParameter("token");
