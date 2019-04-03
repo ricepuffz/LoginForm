@@ -14,13 +14,30 @@ body {
 	color: #00AEDC;
 }
 
+div[id=welcomeMessageDiv] {
+	float: left;
+	margin: 70px 0 0 0;
+}
+
+p[id=welcomeMessage] {
+	font-weight: bold;
+	font-size: 40px;
+	margin: 0 0 5px 0;
+}
+
+h2[id=welcomeMessageName] {
+	font-size: 60px;
+	margin: 0
+}
+
 div[id=searchBox] {
 	display: inline-block;
-	margin-top: 50px;
+	margin: 50px 0 0 12vw;
 	padding: 10px;
 	border-style: solid;
 	border-width: 1px;
 	width: fit-content;
+	float: left;
 }
 
 h2[id=searchBoxHeader] {
@@ -52,6 +69,7 @@ button[id=submitbutton] {
 
 button[id=submitbutton]:hover {
 	background-color: #008CBA;
+	cursor: pointer;
 }
 
 form {
@@ -59,26 +77,30 @@ form {
 }
 
 div[id=aboutTheStocks] {
-	margin-top: 50px;
+	margin: 60px 0 100px 0;
 	width: 60vw;
 	display: inline-block;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #aaccff;
+	padding: 0 10px 0 15px;
 }
 
 div[id=aboutTheStocks] h1 {
 	width: fit-content;
 	font-family: 'Trebuchet MS', Helvetica, sans-serif;
-	font-size: 50px;
-	text-decoration: underline;
+	font-size: 60px;
+	text-decoration: none;
 	text-align: center;
 	display: inline-block;
-	margin: 10px 0 30px 0;
+	margin: 20px 0 10px 0;
 }
 
 div[id=aboutTheStocks] h2 {
 	width: fit-content;
 	font-family: 'Trebuchet MS', Helvetica, sans-serif;
 	font-size: 35px;
-	margin-bottom: 5px;
+	margin-bottom: 0;
 }
 
 div[id=aboutTheStocks] p {

@@ -163,7 +163,7 @@ public class StockServlet extends HttpServlet
 				+ "        },"
 				+ "        elements: {"
 				+ "            line: {"
-				+ "                tension: 0"
+				+ "                "//tension: 0"
 				+ "            }"
 				+ "        }"
 				+ "    }"
@@ -179,6 +179,8 @@ public class StockServlet extends HttpServlet
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
 		calendar.add(Calendar.HOUR, -5);
+		if (intervallInt == 1)
+			calendar.add(Calendar.MINUTE, -1);
 		calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) / intervallInt * intervallInt);
 		
 		for (int i = 0; i < 6; i++)
@@ -304,7 +306,7 @@ public class StockServlet extends HttpServlet
 			try {
 				data[i] = dataJSON.getJSONObject(date + " " + times[i]).getString(typeString);
 			} catch (JSONException e) {
-				data[i] = "0";
+				data[i] = "null"; //0
 			}
 		}
 		

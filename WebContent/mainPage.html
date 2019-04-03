@@ -7,59 +7,65 @@
 <body>
 	¬
 	<div class="center">
-		<div id="searchBox">
-			<h2 id="searchBoxHeader" class="stdFont">Show data for stock:</h2>
-		    <form id="searchForm" method="post" onkeypress="return event.keyCode != 13;">
-		    	<input type="text" id="searchinput" name="searchinput" placeholder="Symbol" oninput="checkNavSearchValue()"><br>
-		    	<div id="lowerSearchBox">
-			        <select id="type" name="type">
-			            <option value="volume" selected>Volume</option>
-			            <option value="high">High</option>
-			            <option value="low">Low</option>
-			            <option value="open">Open</option>
-			            <option value="close">Close</option>
-			        </select>
-			        <button type="button" id="submitbutton" onclick="searchClick()">Submit</button>
-			    </div>
-		    </form>
+		<div style="display: inline-block;">
+			<div id="welcomeMessageDiv">
+				<p id="welcomeMessage" class="stdFont">Welcome back,</p>
+				<h2 id="welcomeMessageName" class="stdFont blue">¬</h2>
+			</div>
+			<div id="searchBox">
+				<h2 id="searchBoxHeader" class="stdFont">Show data for stock:</h2>
+			    <form id="searchForm" method="post" onkeypress="return event.keyCode != 13;">
+			    	<input type="text" id="searchinput" name="searchinput" placeholder="Symbol" oninput="checkSearchValue()"><br>
+			    	<div id="lowerSearchBox">
+				        <select id="type" name="type">
+				            <option value="volume" selected>Volume</option>
+				            <option value="high">High</option>
+				            <option value="low">Low</option>
+				            <option value="open">Open</option>
+				            <option value="close">Close</option>
+				        </select>
+				        <button type="button" id="submitbutton" onclick="searchClick()">Submit</button>
+				    </div>
+			    </form>
+			</div>
 		</div>
 		<br>
 		<div id="aboutTheStocks">
-			<h1>About the stocks</h1>
+			<h1>A few high value stocks</h1>
 			<h2>Microsoft Corporation</h2>
 			<p class="blue">MSFT</p>
 			<p>Microsoft Corporation is an American multinational technology company with headquarters in Redmond, Washington. It develops, manufactures, licenses, supports and sells computer software, consumer electronics, personal computers, and related services.</p>
 			<br>
 			<h2>Apple Inc.</h2>
-			<p class="blue">Symbol: AAPL</p>
+			<p class="blue">AAPL</p>
 			<p>Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services. It is considered one of the Big Four of technology along with Amazon, Google, and Facebook.</p>
 			<br>
 			<h2>Amazon.com, Inc</h2>
-			<p class="blue">Symbol: AMZN</p>
+			<p class="blue">AMZN</p>
 			<p>Amazon.com, Inc., is an American multinational technology company based in Seattle, Washington that focuses in e-commerce, cloud computing, and artificial intelligence. Amazon is the largest e-commerce marketplace and cloud computing platform in the world as measured by revenue and market capitalization.</p>
 			<br>
 			<h2>Alphabet Inc.</h2>
-			<p class="blue">Symbol: GOOGL</p>
+			<p class="blue">GOOGL</p>
 			<p>Alphabet Inc. is an American multinational conglomerate headquartered in Mountain View, California. It was created through a corporate restructuring of Google on October 2, 2015, and became the parent company of Google and several former Google subsidiaries.</p>
 			<br>
 			<h2>Netflix, Inc.</h2>
-			<p class="blue">Symbol: NFLX</p>
+			<p class="blue">NFLX</p>
 			<p>Netflix, Inc. is an American media-services provider headquartered in Los Gatos, California, founded in 1997 by Reed Hastings and Marc Randolph in Scotts Valley, California.</p>
 			<br>
 			<h2>Facebook, Inc.</h2>
-			<p class="blue">Symbol: FB</p>
+			<p class="blue">FB</p>
 			<p>Facebook, Inc. is an American online social media and social networking service company. It is based in Menlo Park, California. It was founded by Mark Zuckerberg, along with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes.</p>
 			<br>
 			<h2>Alibaba Group Holding Ltd</h2>
-			<p class="blue">Symbol: BABA</p>
+			<p class="blue">BABA</p>
 			<p>Alibaba Group Holding Limited is a Chinese multinational conglomerate specializing in e-commerce, retail, Internet and technology.</p>
 			<br>
 			<h2>Johnson & Johnson</h2>
-			<p class="blue">Symbol: JNJ</p>
+			<p class="blue">JNJ</p>
 			<p>Johnson & Johnson is an American multinational medical devices, pharmaceutical and consumer packaged goods manufacturing company founded in 1886.</p>
 			<br>
 			<h2>Exxon Mobil Corporation</h2>
-			<p class="blue">Symbol: XOM</p>
+			<p class="blue">XOM</p>
 			<p>Exxon Mobil Corporation, doing business as ExxonMobil, is an American multinational oil and gas corporation headquartered in Irving, Texas. It is the largest direct descendant of John D. Rockefeller's Standard Oil Company, and was formed on November 30, 1999 by the merger of Exxon and Mobil.</p>
 			<br>
 		</div>
@@ -71,7 +77,7 @@ function searchClick()
 		document.getElementById("searchForm").submit();
 }
 
-function checkNavSearchValue()
+function checkSearchValue()
 {
 	if (document.getElementById("searchinput").value.length == 0)
 	{
