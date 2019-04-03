@@ -40,7 +40,7 @@ public class MainPageServlet extends HttpServlet
 		{
 			String[] html = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/mainPage.html");
 			String[] navigationBarHtml = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/navigationBar.html");
-			String title = GlobalInfo.userDatabase.getGender(username).equals("Male") ? "Mr " : "Mrs ";
+			String title = GlobalInfo.userDatabase.getGender(username).equals("Male") ? "Mr. " : "Mrs. ";
 			String name = GlobalInfo.userDatabase.getName(username);
 			
 			out.print(html[0] + request.getContextPath() + html[1] + navigationBarHtml[0] + request.getContextPath() +
