@@ -98,10 +98,10 @@ public class StockServlet extends HttpServlet
 					String firstKey = data.keys().next();
 					if (firstKey.equals("Error Message"))
 					{
-						out.print("<html><body><p>ERROR: INVALID SYMBOL</p><a href=\"MainPageServlet?username=" + request.getParameter("username") + "&token=" + request.getParameter("token") + "\">Return to Main Page</a></body></html>");
+						response.sendRedirect(request.getContextPath() + "/ErrorServlet?username=" + username + "&token=" + token + "&message=Invalid symbol");
 						return;
 					} else if (firstKey.equals("Note")) {
-						out.print("<html><body><p>ERROR: API CALL FREQUENCY LIMIT REACHED (5 PER MIN, 500 PER DAY)</p><a href=\"MainPageServlet?username=" + request.getParameter("username") + "&token=" + request.getParameter("token") +"\">Return to Main Page</a></body></html>");
+						response.sendRedirect(request.getContextPath() + "/ErrorServlet?username=" + username + "&token=" + token + "&message=API call frequency limit reached (5per minute, 500 per day)");
 						return;
 					}
 				}

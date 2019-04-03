@@ -46,7 +46,7 @@ public class MainPageServlet extends HttpServlet
 			String searchinput = request.getParameter("searchinput");
 			String type = request.getParameter("type");
 			
-			response.sendRedirect("/LoginForm/StockServlet?symbol=" + searchinput + "&type=" + type + "&username=" + username + "&token=" + token);
+			response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchinput + "&type=" + type + "&username=" + username + "&token=" + token);
 		} else {
 			String type = "volume";
 			String[] searchParams = navSearchInput.split(":");

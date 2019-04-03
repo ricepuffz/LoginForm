@@ -1,0 +1,32 @@
+div[id=container] {
+	margin-top: 15vw;
+	padding: 0px 0px 15px 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-top-width: 2px;
+    width: min-content;
+}
+
+h2 {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 30px;
+	padding: 3px 100px 3px 100px;
+	background-color: #dddddd;
+	display: inline;
+	position: relative;
+	top: 2px;
+}
+
+p {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 15px;
+	padding-left: 2px;
+	position: relative;
+	top: 5px;
+}
+
+a {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 15px;
+	padding-left: 2px;
+}
