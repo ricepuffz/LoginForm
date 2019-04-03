@@ -84,6 +84,7 @@ div[id=aboutTheStocks] {
 	border-width: 2px;
 	border-color: #aaccff;
 	padding: 0 10px 0 15px;
+	background-color: #f3f5ff;
 }
 
 div[id=aboutTheStocks] h1 {
@@ -93,14 +94,19 @@ div[id=aboutTheStocks] h1 {
 	text-decoration: none;
 	text-align: center;
 	display: inline-block;
-	margin: 20px 0 10px 0;
+	margin: 20px 0 20px 0;
 }
 
-div[id=aboutTheStocks] h2 {
+div[id=aboutTheStocks] a {
 	width: fit-content;
 	font-family: 'Trebuchet MS', Helvetica, sans-serif;
 	font-size: 35px;
 	margin-bottom: 0;
+	margin-top: 30px;
+	display: block;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
 }
 
 div[id=aboutTheStocks] p {

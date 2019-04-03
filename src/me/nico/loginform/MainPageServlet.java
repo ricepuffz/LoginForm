@@ -44,7 +44,16 @@ public class MainPageServlet extends HttpServlet
 			String name = GlobalInfo.userDatabase.getName(username);
 			
 			out.print(html[0] + request.getContextPath() + html[1] + navigationBarHtml[0] + request.getContextPath() +
-					navigationBarHtml[1] + html[2] + title + name + html[3]);
+					navigationBarHtml[1] + html[2] + title + name + html[3]
+					+ username + html[4] + token + html[5]
+					+ username + html[6] + token + html[7]
+					+ username + html[8] + token + html[9]
+					+ username + html[10] + token + html[11]
+					+ username + html[12] + token + html[13]
+					+ username + html[14] + token + html[15]
+					+ username + html[16] + token + html[17]
+					+ username + html[18] + token + html[19]
+					+ username + html[20] + token + html[21]);
 		}
 	}
 	
