@@ -108,13 +108,19 @@ public class StockServlet extends HttpServlet
 				
 				String[] html = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/stockPage.html");
 				String[] navigationBarHtml = HTMLReader.readHtml(GlobalInfo.PROJECT_PATH + "/WebContent/navigationBar.html");
+				String stockInfo = WikipediaSummaryFetcher.fetch(SymbolConversion.symbolToCompanyName(symbol));
 				
-				out.print(html[0] + request.getContextPath() + html[1] + symbol + html[2] + navigationBarHtml[0] + request.getContextPath() + navigationBarHtml[1] + html[3] + type.substring(0, 1).toUpperCase() + type.substring(1) + html[4] + symbol + html[5]
+				if (stockInfo.equals("")) {
+					stockInfo = "No information is available for this stock.";
+				}
+				
+				out.print(html[0] + request.getContextPath() + html[1] + symbol + html[2] + navigationBarHtml[0] + request.getContextPath() + navigationBarHtml[1] + html[3]
+						+ stockInfo + html[4] + type.substring(0, 1).toUpperCase() + type.substring(1) + html[5] + symbol + html[6]
 						+ buildGraph("min1Chart", symbol, type, "1min", dataJSON[0])
 						+ buildGraph("min5Chart", symbol, type, "5min", dataJSON[1])
 						+ buildGraph("min15Chart", symbol, type, "15min", dataJSON[2])
 						+ buildGraph("min30Chart", symbol, type, "30min", dataJSON[3])
-						+ html[6]);
+						+ html[7]);
 			}
 		}
 	}

@@ -1,13 +1,13 @@
 <link rel='stylesheet' type='text/css' href='¬/styles/navigationBar.css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<ul>
+<ul id="navBar">
     <li><a id="mainPageLink">Main Page</a></li>
     <li><a id="helpLink" onclick="openHelp()">Help</a></li>
     <div id="navRightDiv">
 	    <li id="searchListEntry">
 	    	<div id="navSearch">
 	    		<form id="navSearchForm" method="post" onkeypress="return event.keyCode != 13;">
-	    			<input type="text" placeholder="Search..." id="navSearchInput" name="navSearchInput" oninput="checkNavSearchValue()">
+	    			<input type="text" placeholder="Search..." id="navSearchInput" name="navSearchInput" autofocus="autofocus" oninput="checkNavSearchValue()">
 	    			<button type="button" id="navSearchButton" onclick="navSearchClick()"><i class="fa fa-search"></i></button>
 	    		</form>
 	    	</div>

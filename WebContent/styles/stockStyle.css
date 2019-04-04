@@ -1,29 +1,73 @@
 body {
 	margin: 0;
+	height: 100%;
+	overflow: hidden;
 }
 
-div[id=bodyWrapperWrapper] {
-	width: 50%;
-	background-color: #dddddd;
+.center {
+	text-align: center;
+}
+
+.blockText {
+	text-align: justify;
+}
+
+.stdFont {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
 }
 
 div[id=bodyWrapper] {
-	width: 75%;
+	display: flex;
+	flex: auto;
 }
 
-center {
-	margin-top: 3vw;
+div[id=leftSideDiv] {
+	width: 30vw;
+	flex: none;
+	//left margin HAS to be set in html, right one is getting calculated on setup and resize
+}
+
+div[id=stockInfoContainer] {
+	overflow: auto;
+	border: solid;
+    border-width: 1px;
+    padding: 7px;
+    background-color: #f0f5ff;
+    border-color: #c0c5ff;
+}
+
+p[id=stockInfo] {
+	margin: 0;
+}
+
+h2[id=aboutTheStock] {
+	font-size: 40px;
+	//top and bottom margin HAS to be applied directly in html
+}
+
+div[id=rightSideDiv] {
+	flex: none;
+	height: inherit;
+	//right margin HAS to be applied directly in html
+}
+
+div[id=rightSideWrapper] {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-46%);
+	width: inherit;
+}
+
+h2[id=graphHeader] {
+	margin: 0;
+	font-size: 6vh;
+}
+
+div[id=canvasDiv] {
+	
 }
 
 canvas {
 	background-color: #ffffff;
 	position: absolute;
-}
-
-div[name=canvasDiv] {
-	
-}
-
-br {
-	font-size: 0.7vw;
 }

@@ -1,91 +1,141 @@
 <html>
-<link rel='stylesheet' type='text/css' href='¬/styles/stockStyle.css'>
-<script src="chart/Chart.bundle.js"></script>
-
-<head>
-    <title>Stock ¬</title>
-</head>
-
-<body onload="setup()" onresize="resizeCanvasDiv()">
-	¬
-    <center>
-        <div id="bodyWrapperWrapper">	
-            <div id="bodyWrapper">
-                <br>
-                <center>
-                    <div id="titleWrapper">
-                        <u>
-						 <font size="3" style="font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 3vw;">¬ history for ¬</font>
-						 </u>
-                    </div>
-                    <div id="canvasDiv" name="canvasDiv" style="margin-top: 5vw; margin-bottom: 1vw;">
-                        <canvas id="min1Chart" width="400" height="400"></canvas>
-                        <canvas id="min5Chart" width="400" height="400"></canvas>
-                        <canvas id="min15Chart" width="400" height="400"></canvas>
-                        <canvas id="min30Chart" width="400" height="400"></canvas>
-                    </div>
-                    <div id="intervalSelectDiv" name="intervalSelectDiv" style="margin-bottom: 4vw;">
-                        <select id="intervalSelect" name="intervalSelect" onchange="updateChart()">
-                            <option value="1min" selected>1 minute</option>
-                            <option value="5min">5 minutes</option>
-                            <option value="15min">15 minutes</option>
-                            <option value="30min">30 minutes</option>
-                        </select>
-                    </div>
-                </center>
-                <br>
-            </div>
-        </div>
-    </center>
-    <script>
-        ¬
-        var resizeIntervalID;
-        var activeChart = document.getElementById("min1Chart");
-        var charts = [activeChart, document.getElementById("min5Chart"), document.getElementById("min15Chart"), document.getElementById("min30Chart")];
-        
-        
-        function setup()
-        {
-        	resizeIntervalID = window.setInterval(resizeCanvasDiv, 100);
-        	activateChart(charts[0]);
-        }
-        function resizeCanvasDiv()
-        {
-        	if (activeChart != null)
-            	document.getElementById("canvasDiv").style.height = activeChart.style.height;
-        }
-        function activateChart(newActiveChart)
-        {
-        	activeChart = newActiveChart;
-        	for (var i = 0; i < 4; i++)
-        	{
-        		if (charts[i] != activeChart)
-        			charts[i].style.display = "none";
-        		else
-        			activeChart.style.display = "block";
-        	}
-        }
-        function updateChart()
-        {
-        	var chart;
-        	switch (document.getElementById("intervalSelect").value) {
-        	    case "1min":
-        	    	chart = charts[0];
-        	    	break;
-        	    case "5min":
-        	    	chart = charts[1];
-        	    	break;
-        	    case "15min":
-        	    	chart = charts[2];
-        	    	break;
-        	    case "30min":
-        	    	chart = charts[3];
-        	    	break;
-        	}
-        	console.log("Selected chart: " + chart);
-        	activateChart(chart);
-        }
-    </script>
-</body>
-
+	<link rel='stylesheet' type='text/css' href='¬/styles/stockStyle.css'>
+	<script src="chart/Chart.bundle.js"></script>
+	
+	<head>
+		<title>Stock ¬</title>
+		<body onload="setup()" onresize="onResizeFunction()">
+			¬
+			<div id="bodyWrapper">
+				<div id="leftSideDiv" style="margin-left: 10vw">
+					<h2 id="aboutTheStock" class="center stdFont" style="margin-top: 40px; margin-bottom: 20px;">About the stock</h2>
+					<div id="stockInfoContainer">
+						<p class="blockText stdFont" id="stockInfo">¬</p>
+					</div>
+				</div>
+				<div id="rightSideDiv" class="center" style="margin-right: 10vw;">
+					<div id="rightSideWrapper">
+						<h2 id="graphHeader" class="stdFont" style="margin-bottom: 3vh;">¬ graph for ¬</h2>
+						<div id="canvasDiv">
+	                        <canvas id="min1Chart" width="400" height="400"></canvas>
+	                        <canvas id="min5Chart" width="400" height="400"></canvas>
+	                        <canvas id="min15Chart" width="400" height="400"></canvas>
+	                        <canvas id="min30Chart" width="400" height="400"></canvas>
+                    	</div>
+                    	<div id="intervallDiv">
+                    		<span class="stdFont">Interval: </span>
+                    		<select id="intervalSelect" name="intervalSelect" onchange="updateChart()" style="margin-top: 2vh;">
+	                            <option value="1min" selected>1 minute</option>
+	                            <option value="5min">5 minutes</option>
+	                            <option value="15min">15 minutes</option>
+	                            <option value="30min">30 minutes</option>
+                        	</select>
+                    	</div>
+					</div>
+				</div>
+			</div>
+		</body>
+		<script>
+			¬
+			
+	        var activeChart = document.getElementById("min1Chart");
+	        var charts = [activeChart, document.getElementById("min5Chart"), document.getElementById("min15Chart"), document.getElementById("min30Chart")];
+	        
+	        
+	        
+			
+			function setup()
+			{
+	        	activateChart(charts[0]);
+				onResizeFunction();
+			}
+			
+			
+			
+			function onResizeFunction()
+			{
+				if (activeChart != null)
+	            	document.getElementById("canvasDiv").clientHeight = activeChart.clientHeight;
+				
+				var bodyHeight = document.documentElement.clientHeight;
+				var bodyWrapper = document.getElementById("bodyWrapper");
+				var aboutTheStock = document.getElementById("aboutTheStock");
+				
+				bodyWrapper.style.height = bodyHeight - document.getElementById("navBar").clientHeight;
+				document.getElementById("stockInfoContainer").style.height = parseInt(bodyWrapper.style.height, 10)
+							- aboutTheStock.clientHeight - parseInt(aboutTheStock.style.marginTop, 10)
+							- parseInt(aboutTheStock.style.marginBottom, 10) - 70;
+				
+				
+				var newRightSideWrapperWidth = document.getElementById("rightSideDiv").clientWidth;
+				if (newRightSideWrapperWidth < 400) { newRightSideWrapperWidth = 400; }
+				
+				var contentWithoutGraphHeight = document.getElementById("graphHeader").clientHeight + document.getElementById("intervallDiv").clientHeight;
+				
+				var maxSize = document.getElementById("rightSideDiv").clientHeight - contentWithoutGraphHeight - 40;
+				console.log(maxSize);
+				if (newRightSideWrapperWidth > maxSize) { newRightSideWrapperWidth = maxSize; }
+				
+				document.getElementById("canvasDiv").style.height = newRightSideWrapperWidth;
+				
+				for (var i = 0; i < 4; i++)
+				{
+					charts[i].style.width = newRightSideWrapperWidth;
+				}
+				
+				document.getElementById("rightSideWrapper").style.width = newRightSideWrapperWidth;
+				
+				document.getElementById("rightSideDiv").style.width = document.getElementById("rightSideWrapper").clientWidth;
+				
+				var leftSideDiv = document.getElementById("leftSideDiv");
+				var rightSideDiv = document.getElementById("rightSideDiv");
+				
+				var margin = (bodyWrapper.clientWidth - vwToPx(leftSideDiv.style.marginLeft, bodyWrapper.clientWidth)
+				- leftSideDiv.clientWidth - rightSideDiv.clientWidth) / 2;
+				
+				leftSideDiv.style.marginRight = margin;
+				rightSideDiv.style.marginRight = margin;
+			}
+			
+			function vwToPx(vw, width)
+			{
+				var vwValue = parseInt(vw, 10);
+				return width / 100 * vwValue;
+			}
+			
+			
+			function activateChart(newActiveChart)
+	        {
+	        	activeChart = newActiveChart;
+	        	for (var i = 0; i < 4; i++)
+	        	{
+	        		if (charts[i] != activeChart)
+	        			charts[i].style.display = "none";
+	        		else
+	        			activeChart.style.display = "block";
+	        	}
+	        }
+			
+	        function updateChart()
+	        {
+	        	var chart;
+	        	switch (document.getElementById("intervalSelect").value) {
+	        	    case "1min":
+	        	    	chart = charts[0];
+	        	    	break;
+	        	    case "5min":
+	        	    	chart = charts[1];
+	        	    	break;
+	        	    case "15min":
+	        	    	chart = charts[2];
+	        	    	break;
+	        	    case "30min":
+	        	    	chart = charts[3];
+	        	    	break;
+	        	}
+	        	console.log("Selected chart: " + chart);
+	        	activateChart(chart);
+	        }
+		</script>
+	</head>
 </html>
