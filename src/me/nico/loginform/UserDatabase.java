@@ -86,11 +86,11 @@ public class UserDatabase
 		return "";
 	}
 	
-	public static void main(String[] args)
+	public void register(String username, String password, String gender, String name, String firstName)
 	{
 		try {
-			new UserDatabase();
-		} catch (ClassNotFoundException | SQLException e) {
+			statement.execute("INSERT INTO data VALUE (\"" + username + "\", \"" + password + "\", \"" + name + "\", \"" + firstName + "\", \"" + gender + "\"");
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

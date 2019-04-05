@@ -66,3 +66,8 @@ select[id=genderselect] {
     text-align-last: center;
     margin-top: 8px;
 }
+
+p[id=message] {
+	opacity: 0;
+	margin-bottom: 100px;
+}
