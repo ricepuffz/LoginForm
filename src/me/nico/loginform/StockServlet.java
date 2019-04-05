@@ -127,6 +127,8 @@ public class StockServlet extends HttpServlet
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//TODO: CHECK IF COOKIES OR GET PARAMS ARE BEING USED
+		
 		String searchInput = request.getParameter("navSearchInput");
 		if (searchInput == null)
 			doGet(request, response);

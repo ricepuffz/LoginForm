@@ -18,17 +18,19 @@
             <form method="post">
                 <div id="input">
                     <p>Username:</p>
-                    <input type="text" id="usernameinput" name="usernameinput">
+                    <input type="text" id="usernameinput" name="usernameinput" required>
                     <br>
                     <br>
                     <p>Password:</p>
-                    <input type="password" id="passwordinput" name="passwordinput">
+                    <input type="password" id="passwordinput" name="passwordinput" required>
                 </div>
                 <br>
                 <input type="submit" id="submitbutton" value="Submit">
                 <button type="button" id="clearbutton">Clear</button>
             </form>
-            <br>
+            <span class="stdFont">Don't have an account? - </span>
+            <a class="stdFont" href="RegistrationServlet">Register here!</a>
+            <p style="opacity: 0; margin: 0;">;)</p>
         </div>
     </center>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>

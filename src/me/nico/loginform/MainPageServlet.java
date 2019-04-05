@@ -66,23 +66,47 @@ public class MainPageServlet extends HttpServlet
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String username = request.getParameter("username");
-		String token = request.getParameter("token");
-		String navSearchInput = request.getParameter("navSearchInput");
-		if (navSearchInput == null)
+		String username = "";
+		String token = "";
+		
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null)
 		{
-			String searchinput = request.getParameter("searchinput");
-			String type = request.getParameter("type");
-			
-			response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchinput + "&type=" + type + "&username=" + username + "&token=" + token);
-			return;
-		} else {
-			String type = "volume";
-			String[] searchParams = navSearchInput.split(":");
-			if (searchParams.length > 1)
-				type = searchParams[1];
-			response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchParams[0] + "&type=" + type + "&username=" + request.getParameter("username") + "&token=" + request.getParameter("token"));
-			return;
+			for (Cookie cookie : cookies)
+			{
+				if (cookie.getName().equals("username"))
+					username = cookie.getValue();
+				else if (cookie.getName().equals("token"))
+					token = cookie.getValue();
+			}
+		}
+		
+		if (username == "" || token == "")
+		{
+			username = request.getParameter("username");
+			token = request.getParameter("token");
+		}
+		
+		if (!(username == null) && !(token == null))
+		{
+			String navSearchInput = request.getParameter("navSearchInput");
+			if (navSearchInput == null)
+			{
+				String searchinput = request.getParameter("searchinput");
+				String type = request.getParameter("type");
+				
+				response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchinput + "&type=" + type + "&username=" + username + "&token=" + token);
+				return;
+			} else {
+				String type = "volume";
+				String[] searchParams = navSearchInput.split(":");
+				
+				if (searchParams.length > 1)
+					type = searchParams[1];
+				
+				response.sendRedirect(request.getContextPath() + "/StockServlet?symbol=" + searchParams[0] + "&type=" + type + "&username=" + request.getParameter("username") + "&token=" + request.getParameter("token"));
+				return;
+			}
 		}
 	}
 	

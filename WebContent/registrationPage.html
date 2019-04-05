@@ -1,0 +1,60 @@
+<html>
+<link rel='stylesheet' type='text/css' href='¬/styles/registrationPage.css' />
+
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <center>
+        <div id="center">
+            <br>
+            <div id="title">
+                <font size="9">Register</font>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <form method="post">
+                <div id="input">
+                    <p>E-Mail:</p>
+                    <input type="text" id="usernameinput" name="usernameinput" required>
+                    <br>
+                    <br>
+                    <p>Password:</p>
+                    <input type="password" id="passwordinput" name="passwordinput" required>
+                    <br>
+                    <br>
+                    <p>Repeat Password:</p>
+                    <input type="password" id="passwordinputrepeat" name="passwordinputrepeat" required>
+                    <br>
+                    <br>
+                    <p>Gender:</p>
+                    <div id="genderselectDiv">
+	                    <select id="genderselect" name="genderselect">
+	                    	<option value="male" selected="selected">Male</option>
+	                    	<option value="female">Female</option>
+	                    </select>
+	                </div>
+                    <br>
+                    <br>
+                    <p>Name:</p>
+                    <input type="text" id="nameinput" name="nameinput" required>
+                    <br>
+                    <br>
+                    <p>First Name:</p>
+                    <input type="text" id="firstnameinput" name="firstnameinput" required>
+                </div>
+                <br>
+                <button type="button" id="submitbutton">Submit</button>
+                <button type="reset" id="clearbutton">Clear</button>
+            </form>
+            <span class="stdFont">Already have an account? - </span>
+            <a class="stdFont" href="LoginServlet">Login here!</a>
+            <p style="opacity: 0; margin: 0;">;)</p>
+        </div>
+        <p>Error message</p>
+    </center>
+</body>
+
+</html>
