@@ -18,7 +18,13 @@
 <script>
 	var urlString = window.location.href;
 	var url = new URL(urlString);
-	document.getElementById("logoutLink").href = window.location.href + "&logout=true";
+	var logoutLink = document.getElementById("logoutLink");
+	
+	if (urlString.indexOf("?") > -1)
+		logoutLink.href = window.location.href + "&logout=true";
+	else
+		logoutLink.href = window.location.href + "?logout=true";
+	
 	var username = url.searchParams.get("username");
 	var token = url.searchParams.get("token");
 	document.getElementById("mainPageLink").href = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/MainPageServlet?username=" + username + "&token=" + token;
